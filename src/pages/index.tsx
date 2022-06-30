@@ -1,17 +1,18 @@
 import React from 'react';
 import Head from 'next/head';
+import GlobalStyle from '../styles/global';
 
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <div>
       <Head>
         <title>Wine</title>
       </Head>
       <main>
+        <GlobalStyle />
       </main>
     </div>
   );
 };
 
-export default Home;
