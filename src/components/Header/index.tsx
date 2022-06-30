@@ -13,7 +13,7 @@ const Header = () => {
       <div>
         <List>
           {paginas.map((pagina, key) => 
-          <Link href={`/${pagina}`}>
+          <Link key={key} href={`/${pagina}`}>
             <ListItem>{pagina}</ListItem>
           </Link>)}
         </List>
