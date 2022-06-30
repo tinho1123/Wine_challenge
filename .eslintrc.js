@@ -4,15 +4,15 @@ module.exports = {
     es2021: true,
     node: true,
   },
+    settings: {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      },
   extends: [
     'plugin:react/recommended',
     'airbnb',
-  ],
-  'react/function-component-definition': [
-    'error',
-    {
-      namedComponents: 'function-declaration',
-    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
