@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container, Logo, List, ListItem, Account ,Icon, Lupa } from './styles';
+import Link  from 'next/link'
 
 const Header = () => {
-  const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos']
+  const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos'];
+
   return (
     <Container>
       <div>
@@ -10,7 +12,10 @@ const Header = () => {
       </div>
       <div>
         <List>
-          {paginas.map((pagina, key) => <ListItem onClick={(e) => console.log(e)}>{pagina}</ListItem>)}
+          {paginas.map((pagina, key) => 
+          <Link href={`/${pagina}`}>
+            <ListItem>{pagina}</ListItem>
+          </Link>)}
         </List>
       </div>
       <Account>
