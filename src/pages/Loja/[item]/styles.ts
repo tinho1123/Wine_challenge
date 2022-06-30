@@ -76,7 +76,40 @@ export const NameWine = styled.h3`
 `;
 
 export const SubInfoWine = styled.div`
+    height: 16px;
     margin-top: 8px;
     display: flex;
     gap: 8px;
+
+    p {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #555555;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+`;
+
+export const PriceMember = styled.p`
+    margin-top: 48px;
+    color: #C81A78;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 32px;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.48675px;
+
+`;
+
+export const PriceNonMember = styled.p`
+    margin-top: 8px;
+    color: #888888;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
 `;

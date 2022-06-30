@@ -49,9 +49,9 @@ function CardWine(props : Props) {
         </Discount>
         <Member>
           <MemberWine>sócio wine</MemberWine>
-          <MemberPrice>R${props.priceMember}</MemberPrice>
+          <MemberPrice>R${props.priceMember?.toFixed(2)}</MemberPrice>
         </Member>
-        <NonMember>Não sócio R${props.priceNonMember}</NonMember>
+        <NonMember>Não sócio R${props.priceNonMember?.toFixed(2)}</NonMember>
       </WineCard>
       </Link>
       <Button><LabelButton>Adicionar</LabelButton></Button>
