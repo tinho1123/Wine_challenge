@@ -1,17 +1,11 @@
-import { Container, ContentFilter, FilterSearch, Content } from "./styles";
+import { useState } from "react";
+import FilterContent from "../FilterContent";
+import { Container, Content } from "./styles";
 
 const Main = () => {
     return (
         <Container>
-            <ContentFilter>
-                <FilterSearch>
-                    <h4 className="titleSearch">Refine sua busca</h4>
-                    <p className="subtitleSearch">Por preço</p>
-                    <div>
-                        
-                    </div>
-                </FilterSearch>
-            </ContentFilter>
+            <FilterContent />
             <Content>sadsadas</Content>
         </Container>
     )
