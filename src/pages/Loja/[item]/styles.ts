@@ -113,3 +113,69 @@ export const PriceNonMember = styled.p`
     line-height: 19px;
     text-transform: uppercase;
 `;
+
+export const DescriptionWine = styled.div`
+margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    h6 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    p {
+        max-width: 448px;
+        color: #666666;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+    }
+`;
+
+export const ButtonAddCart = styled.div`
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #FFFFFF;
+    background-color: #7EBC43;
+    max-width: 328px;
+    height: 56px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
+    border-radius: 4px;
+
+    .addsumButton {
+        display: flex;
+        gap: 17px;
+
+        .subtractItem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            cursor: pointer;
+        }
+
+        .addItem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            cursor: pointer;
+        }
+
+        .countItem {
+            width: 39px;
+            height: 42px;
+            font-size: 24px;
+            line-height: 42px;
+            text-align: center;
+        }
+    }
+`;
