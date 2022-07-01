@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ButtonGoBack = styled.div`
     margin-top: 1.4rem;
@@ -24,7 +24,7 @@ export const ButtonGoBack = styled.div`
         font-size: 20px;
         line-height: 24px;
     }
-`;
+`
 
 export const Wine = styled.div`
     margin-top: 25px;
@@ -35,12 +35,12 @@ export const Wine = styled.div`
     .infoImage {
         width: 18rem;
     }
-`;
+`
 
 export const InfoWine = styled.div`
     display: flex;
     flex-direction: column;
-`;
+`
 
 export const CountryWine = styled.div`
     width: 500px;
@@ -65,7 +65,7 @@ export const CountryWine = styled.div`
         font-size: 14px;
         line-height: 20px
     }
-`;
+`
 
 export const NameWine = styled.h3`
     margin-top: 16px;
@@ -73,7 +73,7 @@ export const NameWine = styled.h3`
     font-weight: 700;
     font-size: 28px;
     line-height: 32px;
-`;
+`
 
 export const SubInfoWine = styled.div`
     height: 16px;
@@ -90,7 +90,7 @@ export const SubInfoWine = styled.div`
         justify-content: center;
         align-items: center;
     }
-`;
+`
 
 export const PriceMember = styled.p`
     margin-top: 48px;
@@ -103,7 +103,7 @@ export const PriceMember = styled.p`
     align-items: center;
     letter-spacing: -0.48675px;
 
-`;
+`
 
 export const PriceNonMember = styled.p`
     margin-top: 8px;
@@ -112,7 +112,7 @@ export const PriceNonMember = styled.p`
     font-size: 16px;
     line-height: 19px;
     text-transform: uppercase;
-`;
+`
 
 export const DescriptionWine = styled.div`
 margin-top: 48px;
@@ -132,7 +132,7 @@ margin-top: 48px;
         font-size: 14px;
         line-height: 150%;
     }
-`;
+`
 
 export const ButtonAddCart = styled.div`
     margin-top: 48px;
@@ -178,4 +178,4 @@ export const ButtonAddCart = styled.div`
             text-align: center;
         }
     }
-`;
+`

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 import {
   Container,
   WineCard,
@@ -13,8 +13,8 @@ import {
   MemberPrice,
   NonMember,
   Button,
-  LabelButton,
-} from "./styles";
+  LabelButton
+} from './styles'
 
 interface Props {
   id?: number;
@@ -35,8 +35,7 @@ interface Props {
   sommelierComment?: string;
 }
 
-function CardWine(props : Props) {
-  
+function CardWine (props : Props) {
   return (
     <Container>
       <Link href={`/Loja/${props.name}`}>
@@ -56,7 +55,7 @@ function CardWine(props : Props) {
       </Link>
       <Button><LabelButton>Adicionar</LabelButton></Button>
     </Container>
-  );
+  )
 }
 
-export default CardWine;
+export default CardWine

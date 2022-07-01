@@ -1,16 +1,14 @@
-import { GetServerSideProps, GetStaticPaths } from "next";
-import { Header } from "../../components";
-import Main from "../../components/Main";
-import GlobalStyle from '../../styles/global';
+import React from 'react'
+import { Header } from '../../components'
+import Main from '../../components/Main'
 
-function Loja() {
- return (
+function Loja () {
+  return (
     <div>
-      <GlobalStyle />
       <Header />
       <Main />
     </div>
- )
+  )
 }
 
-export default Loja;
+export default Loja

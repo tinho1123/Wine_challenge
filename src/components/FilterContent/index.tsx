@@ -1,14 +1,14 @@
-import React from 'react';
-import { FilterSearch, ListFilterSearch, CheckBoxFilterSearch } from './styles';
+import React from 'react'
+import { FilterSearch, ListFilterSearch, CheckBoxFilterSearch } from './styles'
 
-function FilterContent() {
+function FilterContent () {
   const checklist = [
     'Até R$40',
     'R$40 A R$60',
     'R$100 A R$200',
     'R$200 A R$500',
-    'Acima de R$500',
-  ];
+    'Acima de R$500'
+  ]
   return (
     <div>
       <FilterSearch>
@@ -17,8 +17,8 @@ function FilterContent() {
         <div>
           <ListFilterSearch>
             <CheckBoxFilterSearch>
-              {checklist.map((item) => (
-                <div style={{ display: 'flex', gap: '13.72px' }}>
+              {checklist.map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '13.72px' }}>
                   <input type="radio" name="opcao" className="checkbox-round" />
                   <p>{item}</p>
                 </div>
@@ -28,7 +28,7 @@ function FilterContent() {
         </div>
       </FilterSearch>
     </div>
-  );
+  )
 }
 
-export default FilterContent;
+export default FilterContent

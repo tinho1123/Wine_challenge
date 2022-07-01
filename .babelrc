@@ -3,5 +3,6 @@
     "parserOptions": {
         "sourceType": "module",
         "allowImportExportEverywhere": true
-    }
+    },
+    "presets": ["next/babel"]
 }

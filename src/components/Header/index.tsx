@@ -1,9 +1,9 @@
-import React from 'react';
-import { Container, Logo, List, ListItem, Account ,Icon, Lupa } from './styles';
-import Link  from 'next/link'
+import React from 'react'
+import { Container, Logo, List, ListItem, Account, Icon, Lupa } from './styles'
+import Link from 'next/link'
 
 const Header = () => {
-  const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos'];
+  const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos']
 
   return (
     <Container>
@@ -12,7 +12,7 @@ const Header = () => {
       </div>
       <div>
         <List>
-          {paginas.map((pagina, key) => 
+          {paginas.map((pagina, key) =>
           <Link key={key} href={`/${pagina}`}>
             <ListItem>{pagina}</ListItem>
           </Link>)}
@@ -20,7 +20,7 @@ const Header = () => {
       </div>
       <Account>
         <Icon>
-          <Lupa src='https://icones.pro/wp-content/uploads/2021/06/icone-loupe-gris.png'  />
+          <Lupa src='https://icones.pro/wp-content/uploads/2021/06/icone-loupe-gris.png' />
         </Icon>
         <Icon>
           <img src='../../../public/assets/lupa.jpg'></img>
@@ -30,7 +30,7 @@ const Header = () => {
         </Icon>
       </Account>
     </Container>
-  );
+  )
 }
 
-export default Header;
+export default Header

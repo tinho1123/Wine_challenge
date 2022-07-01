@@ -1,15 +1,15 @@
-import React from 'react';
-import FilterContent from "../FilterContent";
-import ContextWine from '../ContentWine';
-import { Container } from "./styles";
+import React from 'react'
+import FilterContent from '../FilterContent'
+import ContextWine from '../ContentWine'
+import { Container } from './styles'
 
-function Main() {
+function Main () {
   return (
     <Container>
       <FilterContent />
       <ContextWine />
     </Container>
-  );
+  )
 }
 
-export default Main;
+export default Main
