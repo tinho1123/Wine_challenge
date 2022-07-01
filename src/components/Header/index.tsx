@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Logo, List, ListItem, Account, Icon, Lupa } from './styles'
+import { Container, Logo, List, ListItem, Account, Icon } from './styles'
 import Link from 'next/link'
 
 const Header = () => {
@@ -14,19 +14,19 @@ const Header = () => {
         <List>
           {paginas.map((pagina, key) =>
           <Link key={key} href={`/${pagina}`}>
-            <ListItem>{pagina}</ListItem>
+            <ListItem className='selected'>{pagina}</ListItem>
           </Link>)}
         </List>
       </div>
       <Account>
         <Icon>
-          <Lupa src='https://icones.pro/wp-content/uploads/2021/06/icone-loupe-gris.png' />
+
         </Icon>
         <Icon>
-          <img src='../../../public/assets/lupa.jpg'></img>
+
         </Icon>
         <Icon>
-          <img src='../../../public/assets/lupa.jpg'></img>
+
         </Icon>
       </Account>
     </Container>

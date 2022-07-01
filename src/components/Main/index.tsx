@@ -2,12 +2,13 @@ import React from 'react'
 import FilterContent from '../FilterContent'
 import ContextWine from '../ContentWine'
 import { Container } from './styles'
+import { IFetchData } from '../../../contexts/FetchContext'
 
-function Main () {
+function Main (props: IFetchData) {
   return (
     <Container>
       <FilterContent />
-      <ContextWine />
+      <ContextWine {...props} />
     </Container>
   )
 }
