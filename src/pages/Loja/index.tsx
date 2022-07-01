@@ -1,16 +1,38 @@
-import { GetServerSideProps, GetStaticPaths } from "next";
-import { Header } from "../../components";
-import Main from "../../components/Main";
-import GlobalStyle from '../../styles/global';
+import React, { useEffect, useMemo } from 'react'
+import { GetServerSideProps } from 'next'
+import { FetchContextProvider, useFetchDataContext } from '../../../contexts/FetchContext'
+import { Header } from '../../components'
+import Main from '../../components/Main'
 
-function Loja() {
- return (
-    <div>
-      <GlobalStyle />
-      <Header />
-      <Main />
-    </div>
- )
+interface IApiWine {
+  wines: {
+  page: number;
+  totalPages: number,
+  itemsPerPage: number,
+  totalItems: number,
+  items: object[]
+  }
 }
 
-export default Loja;
+function Loja ({ wines }: IApiWine) {
+  const data = useFetchDataContext()
+  useEffect(() => { data.setApiWine(wines) }, [])
+  return (
+    <FetchContextProvider>
+        <Header {...data} />
+        <Main {...data} />
+    </FetchContextProvider>
+  )
+}
+
+export default Loja
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch('https://wine-back-test.herokuapp.com/products?page=1&limit=9')
+  const data = await res.json()
+  return {
+    props: {
+      wines: data
+    }
+  }
+}

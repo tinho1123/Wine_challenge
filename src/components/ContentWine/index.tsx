@@ -1,6 +1,8 @@
-import React, { useMemo, useState } from 'react';
-import CardWine from '../CardWine';
-import { Content, ItemsCount } from "./styles";
+import React, { Key, useState } from 'react'
+import { IFetchData } from '../../../contexts/FetchContext'
+import CardWine from '../CardWine'
+import Pagination from '../Pagination'
+import { Content, ItemsCount } from './styles'
 
 interface IApiWine {
   page: number;
@@ -10,31 +12,25 @@ interface IApiWine {
   items: object[]
 }
 
-function ContextWine() {
-    const [apiWine, setApiWine] = useState<IApiWine>({
-      page: 0,
-      totalPages: 0,
-      itemsPerPage: 0,
-      totalItems: 0,
-      items: []
-
-    });
-    useMemo(async () => {
-      await fetch('https://wine-back-test.herokuapp.com/products?page=1&limit=10')
-        .then(async (item) => {
-          const json = await item.json();
-          setApiWine(json);
-        })
-    }, [])
-    return (
-        <Content>
-            <ItemsCount><label style={{ fontWeight: '700' }}>{apiWine.totalItems}</label> produtos encontrados</ItemsCount>
+function ContentWine (props: IFetchData) {
+  const [offset, setOffset] = useState(0)
+  return (
+    <>
+    <Content>
+       {!props.apiWine
+         ? 'Loading'
+         : (
+            <>
+            <ItemsCount><label style={{ fontWeight: '700' }}>{props.apiWine?.totalItems}</label> produtos encontrados</ItemsCount>
             <div className='cardContent'>
-              {apiWine.page === 0 ? 'Loading' : (
-              apiWine.items.map((item) => (<CardWine {...item} />)))}
+              { props.apiWine?.items.map((item: IApiWine, i: Key) => (<CardWine key={i} {...item} />))}
             </div>
-        </Content>
-      );
+
+            <Pagination limit={9} total={props.apiWine.totalPages} offset={offset} setOffset={setOffset} switchPage={props.switchPage} />
+      </>)}
+    </Content>
+    </>
+  )
 }
 
-export default ContextWine;
+export default ContentWine

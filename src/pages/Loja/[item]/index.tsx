@@ -1,10 +1,9 @@
-import { useRouter } from "next/router";
-import { useMemo, useState } from "react";
-import Rating from "react-rating";
+import { useRouter } from 'next/router'
+import React, { useMemo, useState } from 'react'
+import Rating from 'react-rating'
 
-import { Header } from "../../../components";
+import { Header } from '../../../components'
 
-import GlobalStyle from "../../../styles/global";
 import {
   ButtonGoBack,
   Wine,
@@ -16,7 +15,7 @@ import {
   PriceNonMember,
   DescriptionWine,
   ButtonAddCart
-} from "./styles";
+} from './styles'
 
 interface Props {
   id?: number;
@@ -38,27 +37,28 @@ interface Props {
 }
 
 const Card = () => {
-  const [info, setInfo] = useState<Props>({});
-  const [sumItemCart, setSumItemCart] = useState(1);
-  const router = useRouter();
-  const { item } = router.query;
+  const [info, setInfo] = useState<Props>({})
+  const [sumItemCart, setSumItemCart] = useState(1)
+  const router = useRouter()
+  const { item } = router.query
 
   useMemo(async () => {
     await fetch(
       `https://wine-back-test.herokuapp.com/products?name=${item}`
     ).then(async (response) => {
-      const res = await response.json();
-      setInfo(res.items[0]);
-    });
-  }, [info]);
+      const res = await response.json()
+      setInfo(res.items[0])
+    })
+  }, [info])
 
   return (
     <div>
-      <GlobalStyle />
       <Header />
-      {info === undefined ? (
-        "Loading"
-      ) : (
+      {info === undefined
+        ? (
+            'Loading'
+          )
+        : (
         <>
           <ButtonGoBack onClick={router.back}>
             <div className="arrow" />
@@ -75,10 +75,10 @@ const Card = () => {
                   <div className="arrowCountry"></div>
                   <p
                     style={{
-                      color: "#888888",
-                      fontWeight: "400",
-                      fontSize: "14px",
-                      lineHeight: "24px",
+                      color: '#888888',
+                      fontWeight: '400',
+                      fontSize: '14px',
+                      lineHeight: '24px'
                     }}
                   >
                     {info.region}
@@ -88,17 +88,17 @@ const Card = () => {
               <div>
                 <NameWine>{info.name}</NameWine>
                 <SubInfoWine>
-                  <img src={info.flag} style={{ width: "16px" }} />
+                  <img src={info.flag} style={{ width: '16px' }} />
                   <p>{info.country}</p>
                   <p>{info.type}</p>
                   <p>{info.classification}</p>
                   <p>{info.size}</p>
                   <div
                     style={{
-                      height: "5px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      height: '5px',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center'
                     }}
                   >
                     <Rating
@@ -108,7 +108,7 @@ const Card = () => {
                       emptySymbol={<div>☆</div>}
                       fullSymbol={<div>⭐</div>}
                     />
-                    <div style={{ marginLeft: "4.8px" }}>
+                    <div style={{ marginLeft: '4.8px' }}>
                       ({info.avaliations})
                     </div>
                   </div>
@@ -116,9 +116,9 @@ const Card = () => {
               </div>
               <div>
                 <PriceMember>
-                  R${(info.priceMember * sumItemCart).toFixed(2)}</PriceMember>
+                  R${(Number(info.priceMember) * sumItemCart).toFixed(2)}</PriceMember>
                 <PriceNonMember>
-                  NÃO SÓCIO R$ {(info.priceNonMember * sumItemCart).toFixed(2)}/un.
+                  NÃO SÓCIO R$ {(Number(info.priceNonMember) * sumItemCart).toFixed(2)}/un.
                 </PriceNonMember>
               </div>
               <div>
@@ -130,13 +130,13 @@ const Card = () => {
               <div>
                 <ButtonAddCart>
                     <div className="addsumButton">
-                    <div className="subtractItem" onClick={() => sumItemCart !== 1 ? setSumItemCart(sumItemCart -1) : setSumItemCart(sumItemCart)}>-</div>
+                    <div className='subtractItem' onClick={() => sumItemCart !== 1 ? setSumItemCart(sumItemCart - 1) : setSumItemCart(sumItemCart)}>-</div>
                     <div className="countItem">
                     {sumItemCart}
                     </div>
                     <div className="addItem" onClick={() => setSumItemCart(sumItemCart + 1)}>+</div>
                     </div>
-                    <div style={{ fontWeight: '700', fontSize: '16px'}}>
+                    <div style={{ fontWeight: '700', fontSize: '16px' }}>
                     Adicionar
                     </div>
                     </ButtonAddCart>
@@ -144,9 +144,9 @@ const Card = () => {
             </InfoWine>
           </Wine>
         </>
-      )}
+          )}
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

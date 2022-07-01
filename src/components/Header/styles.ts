@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
     background-color: #FFFFFF;
@@ -6,14 +6,14 @@ export const Container = styled.div`
     height: 88.23px;
     display: flex;
     border-bottom:0.5px solid #CCCCCC;
-`;
+`
 
 export const Logo = styled.img`
     width: 102.95px;
     height: 31px;
     margin-left: 150.75px;
     margin-top: 27px;
-`;
+`
 
 export const List = styled.ul`
     margin-left: 83.15px;
@@ -22,9 +22,17 @@ export const List = styled.ul`
     font-family: Neo Sans;
     height: 100%;
     position: sticky;
-;
-`;
 
+    .Loja {
+        &::after {
+        content: '';
+        position: relative;
+        top: 30px;
+        border-bottom: 2px solid #D14B8F;
+    }
+    }
+;
+`
 
 export const ListItem = styled.li`
     display: flex;
@@ -33,7 +41,8 @@ export const ListItem = styled.li`
     align-self: center;
     color: #555555;
     cursor: pointer;
-    &:hover, .selected {
+
+    &:hover {
     &::after {
         content: '';
         position: relative;
@@ -41,12 +50,36 @@ export const ListItem = styled.li`
         border-bottom: 2px solid #D14B8F;
     }
 }
-`;
+`
 
 export const Account = styled.div`
+    @keyframes close {
+            
+    }
     margin-left: 150px;
     display: flex;
     gap: 42px;
+
+    .invisible {
+        opacity: 0;
+        display: none;
+
+        transform: translateX(0) scale(0);
+    }
+
+    .visible {
+        transform: translateX(10px) scale(1.2);
+        opacity: 1;
+        display: block;
+        top: 5.5rem;
+        position: absolute;
+        width: 150px;
+        height: 20px;
+
+        
+    }
+
+
 `
 
 export const Icon = styled.div`
@@ -58,9 +91,5 @@ export const Icon = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-`;
-
-export const Lupa = styled.img`
-    width: 40px;
-    height: 40px;
-`;
+    cursor: pointer;
+`
