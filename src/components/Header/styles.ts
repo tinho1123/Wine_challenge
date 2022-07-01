@@ -22,6 +22,15 @@ export const List = styled.ul`
     font-family: Neo Sans;
     height: 100%;
     position: sticky;
+
+    .Loja {
+        &::after {
+        content: '';
+        position: relative;
+        top: 30px;
+        border-bottom: 2px solid #D14B8F;
+    }
+    }
 ;
 `
 
@@ -32,7 +41,8 @@ export const ListItem = styled.li`
     align-self: center;
     color: #555555;
     cursor: pointer;
-    &:hover, .selected {
+
+    &:hover {
     &::after {
         content: '';
         position: relative;

@@ -11,8 +11,9 @@ interface IApiWine {
 
 export interface IFetchData {
   switchPage: (page: number) => Promise<void>;
-  apiWine: IApiWine | undefined,
-  setApiWine: Dispatch<SetStateAction<IApiWine | undefined>>
+  apiWine: IApiWine | undefined;
+  setApiWine: Dispatch<SetStateAction<IApiWine | undefined>>;
+  filterPage: (filter: string) => Promise<void>;
 }
 
 export const FetchContext = createContext<IFetchData | {}>({})
@@ -32,10 +33,21 @@ export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) 
     }
   }
 
+  const filterPage = async (filter: string) => {
+    try {
+      const response = await fetch(`https://wine-back-test.herokuapp.com/products?filter=${filter}`)
+      const data = await response.json()
+      setApiWine(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const fetchData: IFetchData = {
     switchPage,
     apiWine,
-    setApiWine
+    setApiWine,
+    filterPage
   }
 
   return (

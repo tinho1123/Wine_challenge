@@ -14,7 +14,7 @@ const Header = () => {
         <List>
           {paginas.map((pagina, key) =>
           <Link key={key} href={`/${pagina}`}>
-            <ListItem className='selected'>{pagina}</ListItem>
+            <ListItem className={pagina}>{pagina}</ListItem>
           </Link>)}
         </List>
       </div>

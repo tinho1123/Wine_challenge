@@ -7,7 +7,7 @@ import { IFetchData } from '../../../contexts/FetchContext'
 function Main (props: IFetchData) {
   return (
     <Container>
-      <FilterContent />
+      <FilterContent {...props} />
       <ContextWine {...props} />
     </Container>
   )
