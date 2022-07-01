@@ -53,9 +53,33 @@ export const ListItem = styled.li`
 `
 
 export const Account = styled.div`
+    @keyframes close {
+            
+    }
     margin-left: 150px;
     display: flex;
     gap: 42px;
+
+    .invisible {
+        opacity: 0;
+        display: none;
+
+        transform: translateX(0) scale(0);
+    }
+
+    .visible {
+        transform: translateX(10px) scale(1.2);
+        opacity: 1;
+        display: block;
+        top: 5.5rem;
+        position: absolute;
+        width: 150px;
+        height: 20px;
+
+        
+    }
+
+
 `
 
 export const Icon = styled.div`
@@ -67,4 +91,5 @@ export const Icon = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 `

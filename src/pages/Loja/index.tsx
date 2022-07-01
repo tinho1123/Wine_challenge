@@ -19,7 +19,7 @@ function Loja ({ wines }: IApiWine) {
   useEffect(() => { data.setApiWine(wines) }, [])
   return (
     <FetchContextProvider>
-        <Header />
+        <Header {...data} />
         <Main {...data} />
     </FetchContextProvider>
   )

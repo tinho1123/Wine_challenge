@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Logo, List, ListItem, Account, Icon } from './styles'
 import Link from 'next/link'
 
-const Header = () => {
-  const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos']
+interface IApiWine {
+  page: number;
+  totalPages: number,
+  itemsPerPage: number,
+  totalItems: number,
+  items: object[]
+}
 
+interface ISearch {
+  searchPage: (filter: string) => Promise<void>;
+  apiWine: IApiWine | undefined;
+}
+
+const Header = (props: ISearch) => {
+  const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos']
+  const [search, setSearch] = useState('')
+  const [searchCheck, setSearchCheck] = useState(false)
+
+  useEffect(() => {
+    if (search) {
+      setTimeout(() => {
+        props.searchPage(search)
+      }, 1000)
+    }
+  }, [search])
   return (
     <Container>
       <div>
@@ -19,8 +41,16 @@ const Header = () => {
         </List>
       </div>
       <Account>
-        <Icon>
-
+      <input
+        onChange={(e) => {
+          setSearch(e.target.value)
+        }}
+        type='text'
+        placeholder='Faça sua busca'
+        value={search}
+        className={searchCheck ? 'visible' : 'invisible'}
+      />
+        <Icon onClick={() => setSearchCheck(!searchCheck)}>
         </Icon>
         <Icon>
 
