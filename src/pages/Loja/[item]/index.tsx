@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react'
 import Rating from 'react-rating'
 
 import { Header } from '../../../components'
+import { localstorageCardSetItem } from '../../../helpers/localstorageCardSetItem'
 
 import {
   ButtonGoBack,
@@ -34,6 +35,7 @@ interface Props {
   region?: string;
   flag?: string;
   sommelierComment?: string;
+  quantity?: number
 }
 
 const Card = () => {
@@ -136,7 +138,27 @@ const Card = () => {
                     </div>
                     <div className="addItem" onClick={() => setSumItemCart(sumItemCart + 1)}>+</div>
                     </div>
-                    <div style={{ fontWeight: '700', fontSize: '16px' }}>
+                    <div
+                      style={
+                        {
+                          fontWeight: '700',
+                          fontSize: '16px',
+                          cursor: 'pointer',
+                          backgroundColor: 'red',
+                          width: '20px',
+                          height: '20px'
+                        }
+                      }
+                      onClick={() => {
+                        localstorageCardSetItem({
+                          ...info,
+                          price: info.price * sumItemCart,
+                          priceNonMember: info.priceNonMember * sumItemCart,
+                          priceMember: info.priceMember * sumItemCart,
+                          quantity: sumItemCart
+                        })
+                      }}
+                      >
                     Adicionar
                     </div>
                     </ButtonAddCart>

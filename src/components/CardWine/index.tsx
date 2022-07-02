@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { localstorageCardSetItem } from '../../helpers/localstorageCardSetItem';
 import {
   Container,
   WineCard,
@@ -53,7 +54,15 @@ function CardWine (props : Props) {
         <NonMember>Não sócio R${props.priceNonMember?.toFixed(2)}</NonMember>
       </WineCard>
       </Link>
-      <Button><LabelButton>Adicionar</LabelButton></Button>
+      <Button onClick={() => {
+        localstorageCardSetItem({
+          ...props,
+          price: props.price,
+          priceNonMember: props.priceNonMember,
+          priceMember: props.priceMember,
+          quantity: 1
+        })
+      }}><LabelButton>Adicionar</LabelButton></Button>
     </Container>
   )
 }
