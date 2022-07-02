@@ -63,12 +63,10 @@ export const Account = styled.div`
     .invisible {
         opacity: 0;
         display: none;
-
-        transform: translateX(0) scale(0);
     }
 
     .visible {
-        transform: translateX(10px) scale(1.2);
+        outline-color: #B6116E;
         opacity: 1;
         display: block;
         top: 5.5rem;
@@ -83,13 +81,26 @@ export const Account = styled.div`
 `
 
 export const Icon = styled.div`
-    margin-top: 15px;
-    height: 56px;
+    position: relative;
     width: 56px;
-    border: 2px solid #555555;
-    border-radius: 50%;
+    height: 56px;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    .marketCar {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 0px;
+        right: 0px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        color: #4FBFA5;
+    }
 `

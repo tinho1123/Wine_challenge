@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Logo, List, ListItem, Account, Icon } from './styles'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface IApiWine {
   page: number;
@@ -51,12 +52,16 @@ const Header = (props: ISearch) => {
         className={searchCheck ? 'visible' : 'invisible'}
       />
         <Icon onClick={() => setSearchCheck(!searchCheck)}>
+          <Image src={'/../../../public/images/Busca.png'} alt='Lupa de procura' width={56} height={56} />
         </Icon>
         <Icon>
-
+          <Image src={'/../../../public/images/conta.png'} alt='Minha conta' width={56} height={56} />
         </Icon>
         <Icon>
-
+          <Image src={'/../../../public/images/winebox.png'} alt='Carrinho de compras' width={56} height={56}/>
+          <div className='marketCar'>
+            <p>2</p>
+          </div>
         </Icon>
       </Account>
     </Container>
