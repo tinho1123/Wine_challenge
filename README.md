@@ -3,65 +3,43 @@
 
 # 🚀 Front end challenge
 
-Bem-vindo(a). Este é o desafio Front end!
+Projeto feito para o challenge da Wine
 
-O objetivo deste desafio é avaliar suas habilidades de programação.
-Quando sua solução estiver pronta, basta responder o e-mail que recebeu com o link do seu repo aqui no Github!
-Em seguida, enviaremos o feedback e as instruções dos próximos passos!
-
-Caso tenha alguma dúvida, nós estamos disponíveis no email *alexsander@wine.com.br*
-Bom desafio!
-
-> ⚠️ **É importante que o seu repo esteja público, caso contrário não iremos conseguir avaliar sua resposta**
+O objetivo deste desafio é avaliar habilidades de programação.
 # 🧠 Contexto
 
 ![Protótipo](https://firebasestorage.googleapis.com/v0/b/teste-upload-b324a.appspot.com/o/Captura%20de%20Tela%202021-11-01%20a%CC%80s%2014.44.04.png?alt=media&token=92acea99-9f2d-46b5-bced-4b384acf808f)
 
-O desafio será implementar um e-commerce para venda de vinhos que deverá ter as seguintes funcionalidades:
-- [x] Catálogo de produtos com paginação
-- [x] Filtragem produtos por preço
-- [x] Busca por nome do produto
-- [x] Adicionar e remover produtos do carrinho
+## Clone
 
-## 📋 Instruções ReactJS
+Primeiramente deve-se fazer o clone do projeto para poder desfrutar de todo o código e fazer os testes
 
-Chegou a hora de colocar a mão na massa!
+executando o comando `git clone git@github.com:tinho1123/wine_challenge.git`
 
-- Siga [esse protótipo](https://www.figma.com/file/gByBxI9GBHKUjXRtO2fFh2/28%2F10-%F0%9F%96%A5-%F0%9F%93%B1---Wine-Test---WEB-%26-APP?node-id=680%3A6449)
-- Utilize Next.js e Typescript
-- Faça a estilização com styled-components
-- Utilize o local storage para gerenciar o carrinho
-- Por favor, inclua no README as instruções de instalação do projeto
-- Sinta-se livre para incluir quaisquer observações
-- Consuma nossa **API Rest** https://documenter.getpostman.com/view/10015622/UVJiiuHi#fe849253-c47a-492f-a860-08350296c570
+## Instalando Dependências
 
-## 📋 Instruções React Native
+Depois de ter feito o clone do projeto, precisamos assegurar que todos as dependências estão em sua máquina para poder rodar o projeto do melhor jeito possível 😎
 
-Chegou a hora de colocar a mão na massa!
+Para isso: 
+1º passo: Entre na pasta onde foi instalado o projeto, e entre na pasta wine_challenge
+2º Abra o terminal dentro do projeto, clicando com o botão direito e vá em `Abrir terminal`
+3º execute o comando `npm install`
 
-- Siga [esse protótipo](https://www.figma.com/file/gByBxI9GBHKUjXRtO2fFh2/28%2F10-%F0%9F%96%A5-%F0%9F%93%B1---Wine-Test---WEB-%26-APP?node-id=6847%3A2333)
-- Utilize Typescript
-- Faça a estilização com styled-components
-- Utilize o local storage para gerenciar o carrinho
-- Por favor, inclua no README as instruções de instalação do projeto
-- Sinta-se livre para incluir quaisquer observações
-- Consuma nossa **API Rest** https://documenter.getpostman.com/view/10015622/UVJiiuHi#fe849253-c47a-492f-a860-08350296c570
+## Executando o projeto
 
-## ✔️ Critérios de Avaliação
+Meus parabéns! 🥳🥳🥳
+Depois de ter feito tudo isso, vamos poder rodar o projeto em sua máquina!
+Depois de ter instalado as dependências, ainda fica com o terminal aberto que precisaremos executar outro comando.
 
-Além dos requisitos levantados acima, iremos olhar para os seguintes critérios durante a correção do desafio:
+Para isso: execute o `npm start`
 
-- Gerenciamento de estado
-- Componentização
-- Responsividade
-- Preocupação com usabilidade
-- Preocupação com acessibilidade
-- Testes e2e
-- Padrões de código
-- Padrão de commits (_Conventional_)
+depois de ter executado, mostrará o local que estará rodando o projeto, assim podemos entrar em qualquer navegador e colocar a mesma url e pronto 🥳🥳🥳, projetinho rodando
 
-## 😎 Seria legal
-- Fazer deploy na vercel ou em outro local de sua preferência e disponibilizar um link de visualização 
-- Testes unitários
-- Utilização de cache do Next.js
----
+
+## Testando o projeto
+
+Agora vamos testar o projeto utilizando o cypress, com isso execute no terminal dentro da pasta do projeto o comando `npm run cypress` e será testado todos os testes do projeto!
+
+## Site do projeto
+
+<a href='wine-challenge-theta.vercel.app'>Site do projeto</a>
