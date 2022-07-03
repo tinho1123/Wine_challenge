@@ -46,3 +46,5 @@ describe('Loja', () => {
     })
   })
 })
+
+export {}
