@@ -17,7 +17,7 @@ interface IApiWine {
 
 function Loja ({ wines }: IApiWine) {
   const data: IFetchData = useFetchDataContext()
-  useMemo(() => { data.setApiWine(wines!) }, [])
+  useMemo(() => { data.setApiWine?.(wines!) }, [])
   return (
     <FetchContextProvider>
       {data.mobile

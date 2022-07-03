@@ -1,23 +1,10 @@
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React, { useMemo, useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { useFetchDataContext } from '../../../../contexts/FetchContext'
 
 import { Header } from '../../../components'
+import ContainerInfoWine from '../../../components/InfoWine'
 import HeaderMobile from '../../../components/mobile/HeaderMobile'
-
-import {
-  ButtonGoBack,
-  Wine,
-  InfoWine,
-  CountryWine,
-  NameWine,
-  SubInfoWine,
-  PriceMember,
-  PriceNonMember,
-  DescriptionWine,
-  ButtonAddCart
-} from './styles'
 import InfoWineMobile from '../../../components/mobile/InfoWineMobile'
 
 interface Props {
@@ -42,11 +29,9 @@ interface Props {
 
 const Card = () => {
   const [info, setInfo] = useState<Props>({})
-  const [sumItemCart, setSumItemCart] = useState(1)
+  const context = useFetchDataContext()
   const router = useRouter()
   const { item } = router.query
-
-  const context = useFetchDataContext()
 
   useMemo(() => {
     fetch(
@@ -56,133 +41,20 @@ const Card = () => {
       setInfo(res.items[0])
     })
   }, [])
-
   return (
     <div>
       {context.mobile
         ? (
           <>
         <HeaderMobile {...context} />
-        <InfoWineMobile />
+        <InfoWineMobile {...context } />
         </>
           )
         : (
-          <>      <Header {...context} />
-      <ButtonGoBack onClick={router.back}>
-            <div className="arrow" />
-            <p className="goBack">Voltar</p>
-          </ButtonGoBack>
-          {info === undefined
-            ? (
-                'Loading'
-              )
-            : (
-        <>
-
-          <Wine>
-            {info.image && (
-            <Image src={info.image!} className="infoImage" width='381' height='579' alt={info.name} />
-            )}
-            <InfoWine>
-              <div>
-                <CountryWine>
-                  <p className="textCountry">Vinhos</p>
-                  <div className="arrowCountry" />
-                  <p className="textCountry">{info.country}</p>
-                  <div className="arrowCountry"></div>
-                  <p
-                    style={{
-                      color: '#888888',
-                      fontWeight: '400',
-                      fontSize: '14px',
-                      lineHeight: '24px'
-                    }}
-                  >
-                    {info.region}
-                  </p>
-                </CountryWine>
-              </div>
-              <div>
-                <NameWine>{info.name}</NameWine>
-                <SubInfoWine>
-                  {info.flag && (
-                    <Image src={info?.flag!} width='16' height='16' />
-                  )}
-                  <p>{info.country}</p>
-                  <p>{info.type}</p>
-                  <p>{info.classification}</p>
-                  <p>{info.size}</p>
-                  <div
-                    style={{
-                      height: '5px',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <div>⭐</div>
-                    <div>⭐</div>
-                    <div>⭐</div>
-                    <div>⭐</div>
-                    <div>☆</div>
-                    <div style={{ marginLeft: '4.8px' }}>
-                      ({info.avaliations})
-                    </div>
-                  </div>
-                </SubInfoWine>
-              </div>
-              <div>
-                <PriceMember>
-                  R${(Number(info.priceMember) * sumItemCart).toFixed(2)}</PriceMember>
-                <PriceNonMember>
-                  NÃO SÓCIO R$ {(Number(info.priceNonMember) * sumItemCart).toFixed(2)}/un.
-                </PriceNonMember>
-              </div>
-              <div>
-                <DescriptionWine>
-                    <h6>Comentário do Sommelier</h6>
-                    <p>{info.sommelierComment}</p>
-                </DescriptionWine>
-              </div>
-              <div>
-                <ButtonAddCart>
-                    <div className="addsumButton">
-                    <div className='subtractItem' onClick={() => sumItemCart !== 1 ? setSumItemCart(sumItemCart - 1) : setSumItemCart(sumItemCart)}>-</div>
-                    <div className="countItem">
-                    {sumItemCart}
-                    </div>
-                    <div className="addItem" onClick={() => setSumItemCart(sumItemCart + 1)}>+</div>
-                    </div>
-                    <div
-                      style={
-                        {
-                          fontWeight: '700',
-                          fontSize: '16px',
-                          cursor: 'pointer',
-                          width: '20px',
-                          height: '20px'
-                        }
-                      }
-                      onClick={() => {
-                        context?.localstorageCardSetItem!({
-                          ...info,
-                          price: info?.price! * sumItemCart,
-                          priceNonMember: info?.priceNonMember! * sumItemCart,
-                          priceMember: info?.priceMember! * sumItemCart,
-                          quantity: sumItemCart
-                        })
-                      }}
-                      >
-                    Adicionar
-                    </div>
-                    </ButtonAddCart>
-              </div>
-            </InfoWine>
-          </Wine>
-        </>
-              )}
+          <>
+           <Header {...context} />
+           <ContainerInfoWine {...context} {...info} {...setInfo} />
           </>
-
           )}
 
     </div>
