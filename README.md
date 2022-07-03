@@ -27,13 +27,13 @@ Para isso:
 
 ## Executando o projeto
 
-Meus parabéns! 🥳🥳🥳
+Meus parabéns! 🥳🥳🥳<br />
 Depois de ter feito tudo isso, vamos poder rodar o projeto em sua máquina!
 Depois de ter instalado as dependências, ainda fica com o terminal aberto que precisaremos executar outro comando.
 
 Para isso: execute o `npm start`
 
-depois de ter executado, mostrará o local que estará rodando o projeto, assim podemos entrar em qualquer navegador e colocar a mesma url e pronto 🥳🥳🥳, projetinho rodando
+Depois de ter executado, mostrará o local que estará rodando o projeto, assim podemos entrar em qualquer navegador e colocar a mesma url e pronto 🥳🥳🥳, projetinho rodando
 
 
 ## Testando o projeto
