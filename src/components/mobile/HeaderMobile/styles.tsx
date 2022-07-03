@@ -5,14 +5,26 @@ export const Container = styled.header`
     width: 100%;
     height: 88.23px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     border-bottom:0.5px solid #CCCCCC;
     align-items: center;
+
+    @media(max-width: 500px){
+        padding: 0px 50px 0px 20px;
+        
+    }
+
+    @media(max-width: 400px){
+        justify-content: space-evenly;
+        
+    }   
+
 `
 
 export const Hamburguer = styled.img`
     width: 21.88px;
     height: 28px;
+    
 
 `
 
@@ -27,6 +39,10 @@ export const Account = styled.div`
     gap: 42px;
     align-items: center;
     justify-content: center;
+
+    @media(max-width: 450px){
+        gap: 10px
+    }
 
     .invisible {
         opacity: 0;

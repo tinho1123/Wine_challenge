@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const FilterSearch = styled.div`
-    margin-left: 160px;
-    margin-top: 38.77px;
+    margin: 38.77px 0px 0px 160px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

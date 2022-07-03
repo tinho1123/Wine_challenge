@@ -5,6 +5,6 @@ export default defineConfig({
     setupNodeEvents (on, config) {
 
     },
-    baseUrl: 'https://wine-challenge-pqsw3wk37-tinho1123.vercel.app/'
+    baseUrl: 'wine-challenge-theta.vercel.app'
   }
 })

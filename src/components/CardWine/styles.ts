@@ -81,10 +81,9 @@ export const MemberPrice = styled.p`
 `
 
 export const NonMember = styled.p`
-margin-bottom: 21.49px;
+    margin: 4.87px 0px 21.49px 0px;
     width: 100%;
     text-align: center;
-    margin-top: 4.87px;
     color: #888888;
     font-weight: 700;
     font-size: 12px;
