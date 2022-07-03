@@ -3,13 +3,23 @@ import FilterContent from '../FilterContent'
 import ContextWine from '../ContentWine'
 import { Container } from './styles'
 import { IFetchData } from '../../../contexts/FetchContext'
+import ContentWineMobile from '../mobile/ContentWineMobile'
 
 function Main (props: IFetchData) {
-  console.log(props)
   return (
     <Container>
-      <FilterContent {...props} />
-      <ContextWine {...props} />
+      {props.mobile
+        ? (
+        <ContentWineMobile {...props} />
+          )
+        : (
+          <>
+        <FilterContent {...props} />
+        <ContextWine {...props} />
+        </>
+          )
+      }
+
     </Container>
   )
 }

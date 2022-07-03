@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next'
 import { FetchContextProvider, IFetchData, useFetchDataContext } from '../../../contexts/FetchContext'
 import { Header } from '../../components'
 import Main from '../../components/Main'
+import HeaderMobile from '../../components/mobile/HeaderMobile'
 
 interface IApiWine {
   wines?: {
@@ -19,7 +20,13 @@ function Loja ({ wines }: IApiWine) {
   useMemo(() => { data.setApiWine(wines!) }, [])
   return (
     <FetchContextProvider>
+      {data.mobile
+        ? (
+        <HeaderMobile {...data} />
+          )
+        : (
         <Header {...data} />
+          )}
         <Main {...data} />
     </FetchContextProvider>
   )

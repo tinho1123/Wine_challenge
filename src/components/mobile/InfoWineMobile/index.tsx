@@ -3,11 +3,7 @@ import { useRouter } from 'next/router'
 import React, { useMemo, useState } from 'react'
 import { useFetchDataContext } from '../../../../contexts/FetchContext'
 
-import { Header } from '../../../components'
-import HeaderMobile from '../../../components/mobile/HeaderMobile'
-
 import {
-  ButtonGoBack,
   Wine,
   InfoWine,
   CountryWine,
@@ -16,9 +12,9 @@ import {
   PriceMember,
   PriceNonMember,
   DescriptionWine,
-  ButtonAddCart
+  ButtonAddCart,
+  ContainerPrice
 } from './styles'
-import InfoWineMobile from '../../../components/mobile/InfoWineMobile'
 
 interface Props {
   id?: number;
@@ -40,9 +36,8 @@ interface Props {
   quantity?: number;
 }
 
-const Card = () => {
+const InfoWineMobile = () => {
   const [info, setInfo] = useState<Props>({})
-  const [sumItemCart, setSumItemCart] = useState(1)
   const router = useRouter()
   const { item } = router.query
 
@@ -59,33 +54,16 @@ const Card = () => {
 
   return (
     <div>
-      {context.mobile
+      {info === []
         ? (
-          <>
-        <HeaderMobile {...context} />
-        <InfoWineMobile />
-        </>
+            'Loading'
           )
         : (
-          <>      <Header {...context} />
-      <ButtonGoBack onClick={router.back}>
-            <div className="arrow" />
-            <p className="goBack">Voltar</p>
-          </ButtonGoBack>
-          {info === undefined
-            ? (
-                'Loading'
-              )
-            : (
         <>
 
           <Wine>
-            {info.image && (
-            <Image src={info.image!} className="infoImage" width='381' height='579' alt={info.name} />
-            )}
-            <InfoWine>
-              <div>
-                <CountryWine>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <CountryWine>
                   <p className="textCountry">Vinhos</p>
                   <div className="arrowCountry" />
                   <p className="textCountry">{info.country}</p>
@@ -101,8 +79,6 @@ const Card = () => {
                     {info.region}
                   </p>
                 </CountryWine>
-              </div>
-              <div>
                 <NameWine>{info.name}</NameWine>
                 <SubInfoWine>
                   {info.flag && (
@@ -130,63 +106,46 @@ const Card = () => {
                     </div>
                   </div>
                 </SubInfoWine>
-              </div>
-              <div>
+                </div>
+            {info.image && (
+            <Image src={info.image!} className="infoImage" width='381' height='579' alt={info.name} />
+            )}
+            <InfoWine>
+            <DescriptionWine>
+                    <h4>Descrição</h4>
+                    <p>{info.sommelierComment}</p>
+                </DescriptionWine>
+            </InfoWine>
+            <ContainerPrice>
+              <div className='prices'>
+                <div className='discount'><p>{(Number(info.discount))}% OFF</p></div>
+              <p className='priceOriginal'>R$ { (Number(info.price)).toFixed(2)}</p>
+                <div></div>
                 <PriceMember>
-                  R${(Number(info.priceMember) * sumItemCart).toFixed(2)}</PriceMember>
+                  R$<p>{ (Number(info.priceMember)).toFixed(2)}</p></PriceMember>
                 <PriceNonMember>
-                  NÃO SÓCIO R$ {(Number(info.priceNonMember) * sumItemCart).toFixed(2)}/un.
+                  PREÇO NÃO SÓCIO R$ {(Number(info.priceNonMember)).toFixed(2)}
                 </PriceNonMember>
               </div>
               <div>
-                <DescriptionWine>
-                    <h6>Comentário do Sommelier</h6>
-                    <p>{info.sommelierComment}</p>
-                </DescriptionWine>
-              </div>
-              <div>
-                <ButtonAddCart>
-                    <div className="addsumButton">
-                    <div className='subtractItem' onClick={() => sumItemCart !== 1 ? setSumItemCart(sumItemCart - 1) : setSumItemCart(sumItemCart)}>-</div>
-                    <div className="countItem">
-                    {sumItemCart}
-                    </div>
-                    <div className="addItem" onClick={() => setSumItemCart(sumItemCart + 1)}>+</div>
-                    </div>
-                    <div
-                      style={
-                        {
-                          fontWeight: '700',
-                          fontSize: '16px',
-                          cursor: 'pointer',
-                          width: '20px',
-                          height: '20px'
-                        }
-                      }
-                      onClick={() => {
+                <ButtonAddCart onClick={() => {
                         context?.localstorageCardSetItem!({
                           ...info,
-                          price: info?.price! * sumItemCart,
-                          priceNonMember: info?.priceNonMember! * sumItemCart,
-                          priceMember: info?.priceMember! * sumItemCart,
-                          quantity: sumItemCart
+                          price: info?.price!,
+                          priceNonMember: info?.priceNonMember!,
+                          priceMember: info?.priceMember!,
+                          quantity: 1
                         })
-                      }}
-                      >
+                }}>
                     Adicionar
-                    </div>
                     </ButtonAddCart>
-              </div>
-            </InfoWine>
+                    </div>
+              </ContainerPrice>
           </Wine>
         </>
-              )}
-          </>
-
           )}
-
     </div>
   )
 }
 
-export default Card
+export default InfoWineMobile

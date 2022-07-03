@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Logo, List, ListItem, Account, Icon, MarketCar, SearchImage, Perfil } from './styles'
-import Link from 'next/link'
-import { IWineItem } from '../../../contexts/FetchContext'
+import { Container, Logo, Account, Icon, MarketCar, SearchImage, Hamburguer } from './styles'
+// import Link from 'next/link'
+import { IWineItem } from '../../../../contexts/FetchContext'
 
 interface IApiWine {
   page?: number;
@@ -17,8 +17,8 @@ interface ISearch {
   card?: IWineItem[]
 }
 
-const Header = (props: ISearch) => {
-  const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos']
+const HeaderMobile = (props: ISearch) => {
+  // const paginas = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos']
   const [search, setSearch] = useState('')
   const [searchCheck, setSearchCheck] = useState(false)
 
@@ -31,16 +31,11 @@ const Header = (props: ISearch) => {
   }, [search])
   return (
     <Container>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '10rem', marginLeft: '1rem' }}>
+      <Hamburguer src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png' alt='hamburguer'/>
       <div>
         <Logo src='https://d2duuy9yo5pldo.cloudfront.net/dashboard-resources/wine/e90faa36-9670-4bd4-a063-8818d3f9d20e.png' alt='logo'/>
       </div>
-      <div>
-        <List>
-          {paginas.map((pagina, key) =>
-          <Link key={key} href={`/${pagina}`}>
-            <ListItem className={pagina}>{pagina}</ListItem>
-          </Link>)}
-        </List>
       </div>
       <Account>
       <input
@@ -53,17 +48,12 @@ const Header = (props: ISearch) => {
         className={searchCheck ? 'visible' : 'invisible'}
       />
       <div>
-        <Icon className='searchItem' onClick={() => setSearchCheck(!searchCheck)}>
-          <SearchImage src='https://svgsilh.com/svg_v2/1093183.svg' alt='lupa de procura'/>
-        </Icon>
-      </div>
-      <div>
-        <Perfil src='https://w7.pngwing.com/pngs/8/232/png-transparent-computer-icons-man-avatar-male-login-man-people-monochrome-black-thumbnail.png' alt='perfil' />
+          <SearchImage src='https://svgsilh.com/svg_v2/1093183.svg' alt='lupa de procura' onClick={() => setSearchCheck(!searchCheck)}/>
       </div>
       <div className='containerMarket'>
-        <div className='iconMarket' >
+        <Icon style={{ backgroundColor: '#F6B554' }}>
           <MarketCar src='https://www.wine.com.br/clubewine/build/img/selecao-mensal.png' alt='Carrinho de compras' />
-        </div>
+        </Icon>
         <div className='marketCar'>
             <p>{props.card ? props.card.length : 0}</p>
           </div>
@@ -73,4 +63,4 @@ const Header = (props: ISearch) => {
   )
 }
 
-export default Header
+export default HeaderMobile

@@ -1,4 +1,4 @@
-import React, { createContext, PropsWithChildren, useContext, useState } from 'react'
+import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 
 export interface IApiWine {
@@ -32,12 +32,13 @@ export interface IWineItem {
 export interface IFetchData {
   switchPage?: (page: number) => Promise<void>;
   apiWine?: IApiWine | undefined;
-  setApiWine?: Dispatch<SetStateAction<IApiWine | undefined>> | {};
+  setApiWine?: Dispatch<SetStateAction<IApiWine | undefined>>;
   filterPage?: (filter: string) => Promise<void>;
   searchPage?: (text: string) => Promise<void>;
   localstorageCardSetItem?: (item: IWineItem) => void,
   localstorageCardRemoveItem?: (item: IWineItem) => void,
-  card?: IWineItem[]
+  card?: IWineItem[],
+  mobile?: boolean
 }
 
 export const FetchContext = createContext<IFetchData>({})
@@ -47,6 +48,13 @@ export const useFetchDataContext = () => useContext<IFetchData>(FetchContext)
 export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [apiWine, setApiWine] = useState<IApiWine>()
   const [card, setCard] = useState<IWineItem[] | []>([])
+  const [mobile, setMobile] = useState<boolean>(false)
+
+  useEffect(() => {
+    setInterval(() => {
+      setMobile(window.screen.width <= 600)
+    }, 1000)
+  }, [mobile])
 
   const switchPage = async (page: number): Promise<void> => {
     try {
@@ -102,7 +110,8 @@ export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) 
     searchPage,
     localstorageCardSetItem,
     localstorageCardRemoveItem,
-    card
+    card,
+    mobile
   }
 
   return (

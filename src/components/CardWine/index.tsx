@@ -35,6 +35,7 @@ interface Props {
   flag?: string;
   sommelierComment?: string;
   localstorageCardSetItem?: (props:IWineItem) => void;
+  mobile?: boolean
 }
 
 function CardWine (props : Props) {

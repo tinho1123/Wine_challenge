@@ -31,9 +31,11 @@ export const Wine = styled.div`
     margin-left: 289px;
     display: flex;
     gap: 162px;
+    margin-bottom: 73px;
 
     .infoImage {
         width: 18rem;
+  
     }
 `
 
@@ -136,6 +138,7 @@ margin-top: 48px;
 
 export const ButtonAddCart = styled.div`
     margin-top: 48px;
+    padding: 0px 49px 0px 22px;
     display: flex;
     align-items: center;
     justify-content: space-around;

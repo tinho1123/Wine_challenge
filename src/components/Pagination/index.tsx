@@ -14,7 +14,6 @@ const MAX_LEFT = (MAX_ITEMS - 1) / 2
 
 const Pagination = (props: IPagination) => {
   const current = props.offset ? (props.offset / props.limit!) + 1 : 1
-  // const pages = Math.ceil(props.total / props.limit)
   const first = Math.max(current - MAX_LEFT, 1)
 
   return (
