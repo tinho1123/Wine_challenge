@@ -21,9 +21,9 @@ executando o comando `git clone git@github.com:tinho1123/wine_challenge.git`
 Depois de ter feito o clone do projeto, precisamos assegurar que todos as dependências estão em sua máquina para poder rodar o projeto do melhor jeito possível 😎
 
 Para isso: 
-1º passo: Entre na pasta onde foi instalado o projeto, e entre na pasta wine_challenge
-2º Abra o terminal dentro do projeto, clicando com o botão direito e vá em `Abrir terminal`
-3º execute o comando `npm install`
+<br />1º passo: Entre na pasta onde foi instalado o projeto, e entre na pasta wine_challenge
+<br />2º Abra o terminal dentro do projeto, clicando com o botão direito e vá em `Abrir terminal`
+<br />3º execute o comando `npm install`
 
 ## Executando o projeto
 
