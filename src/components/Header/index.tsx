@@ -60,8 +60,7 @@ const Header = (props: ISearch) => {
         </Icon>
       </div>
       <div>
-        {/* https://w7.pngwing.com/pngs/8/232/png-transparent-computer-icons-man-avatar-male-login-man-people-monochrome-black-thumbnail.png */}
-        <Perfil src='../../../public/images/conta.png' alt='perfil' data-cy='perfil' />
+        <Perfil src='https://w7.pngwing.com/pngs/8/232/png-transparent-computer-icons-man-avatar-male-login-man-people-monochrome-black-thumbnail.png' alt='perfil' data-cy='perfil' />
       </div>
       <div className='containerMarket'>
         <div className='iconMarket' >
