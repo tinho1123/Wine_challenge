@@ -149,12 +149,15 @@ export const ButtonAddCart = styled.div`
     .addsumButton {
         display: flex;
         gap: 17px;
+        justify-content: center;
+        align-items: center;
 
         .subtractItem {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 20px;
+            height: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
             cursor: pointer;
@@ -165,6 +168,7 @@ export const ButtonAddCart = styled.div`
             align-items: center;
             justify-content: center;
             width: 20px;
+            height: 20px;
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 24px;
             cursor: pointer;

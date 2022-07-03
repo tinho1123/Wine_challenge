@@ -2,24 +2,24 @@ import React, { createContext, PropsWithChildren, useContext, useState } from 'r
 import type { Dispatch, SetStateAction } from 'react'
 
 interface IApiWine {
-  page: number;
-  totalPages: number,
-  itemsPerPage: number,
-  totalItems: number,
-  items: object[]
+  page?: number;
+  totalPages?: number,
+  itemsPerPage?: number,
+  totalItems?: number,
+  items?: object[]
 }
 
 export interface IFetchData {
-  switchPage: (page: number) => Promise<void>;
-  apiWine: IApiWine | undefined;
-  setApiWine: Dispatch<SetStateAction<IApiWine | undefined>>;
-  filterPage: (filter: string) => Promise<void>;
-  searchPage: (text: string) => Promise<void>
+  switchPage?: (page: number) => Promise<void>;
+  apiWine?: IApiWine | undefined;
+  setApiWine?: Dispatch<SetStateAction<IApiWine | undefined>> | {};
+  filterPage?: (filter: string) => Promise<void>;
+  searchPage?: (text: string) => Promise<void>;
 }
 
-export const FetchContext = createContext<IFetchData | {}>({})
+export const FetchContext = createContext<IFetchData>({})
 
-export const useFetchDataContext = () => useContext(FetchContext)
+export const useFetchDataContext = () => useContext<IFetchData>(FetchContext)
 
 export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [apiWine, setApiWine] = useState<IApiWine>()
@@ -36,6 +36,7 @@ export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) 
 
   const filterPage = async (filter: string) => {
     try {
+      setApiWine({ page: 0 })
       const response = await fetch(`https://wine-back-test.herokuapp.com/products?filter=${filter}`)
       const data = await response.json()
       setApiWine(data)
@@ -46,6 +47,7 @@ export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) 
 
   const searchPage = async (text: string) => {
     try {
+      setApiWine({ page: 0 })
       const response = await fetch(`https://wine-back-test.herokuapp.com/products?name=${text}`)
       const data = await response.json()
       setApiWine(data)

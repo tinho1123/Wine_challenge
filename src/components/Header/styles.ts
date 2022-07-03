@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.header`
     background-color: #FFFFFF;
     width: 100vw;
     height: 88.23px;
@@ -82,9 +82,11 @@ export const Account = styled.div`
 
 export const Icon = styled.div`
     position: relative;
-    width: 56px;
-    height: 56px;
     margin-top: 15px;
+    height: 56px;
+    width: 56px;
+    border: 2px solid #555555;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +102,7 @@ export const Icon = styled.div`
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: #FFFFFF;
+        background-color: #FFFF;
         color: #4FBFA5;
     }
 `

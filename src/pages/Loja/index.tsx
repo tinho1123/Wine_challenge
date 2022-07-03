@@ -1,22 +1,22 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { GetServerSideProps } from 'next'
-import { FetchContextProvider, useFetchDataContext } from '../../../contexts/FetchContext'
+import { FetchContextProvider, IFetchData, useFetchDataContext } from '../../../contexts/FetchContext'
 import { Header } from '../../components'
 import Main from '../../components/Main'
 
 interface IApiWine {
-  wines: {
-  page: number;
-  totalPages: number,
-  itemsPerPage: number,
-  totalItems: number,
-  items: object[]
+  wines?: {
+  page?: number;
+  totalPages?: number,
+  itemsPerPage?: number,
+  totalItems?: number,
+  items?: object[]
   }
 }
 
 function Loja ({ wines }: IApiWine) {
-  const data = useFetchDataContext()
-  useEffect(() => { data.setApiWine(wines) }, [])
+  const data: IFetchData = useFetchDataContext()
+  useMemo(() => { data.setApiWine(wines!) }, [])
   return (
     <FetchContextProvider>
         <Header {...data} />

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { localstorageCardSetItem } from '../../helpers/localstorageCardSetItem';
+import { localstorageCardSetItem } from '../../helpers/localstorageCard'
 import {
   Container,
   WineCard,

@@ -2,18 +2,18 @@ import React from 'react'
 import { Paginate } from './styles'
 
 interface IPagination{
-  limit: number;
-  total: number;
-  offset: number;
-  setOffset: (count: number) => void;
-  switchPage: (offset: number) => void
+  limit?: number;
+  total?: number;
+  offset?: number;
+  setOffset?: (count: number) => void;
+  switchPage?: (offset: number) => void
 }
 
 const MAX_ITEMS = 3
 const MAX_LEFT = (MAX_ITEMS - 1) / 2
 
 const Pagination = (props: IPagination) => {
-  const current = props.offset ? (props.offset / props.limit) + 1 : 1
+  const current = props.offset ? (props.offset / props.limit!) + 1 : 1
   // const pages = Math.ceil(props.total / props.limit)
   const first = Math.max(current - MAX_LEFT, 1)
 
@@ -25,8 +25,8 @@ const Pagination = (props: IPagination) => {
           <li key={page}>
             <button
               onClick={() => {
-                props.setOffset((page - 1) * props.limit)
-                props.switchPage(page)
+                props.setOffset!((page - 1) * props.limit!)
+                props.switchPage!(page)
               }}
               className={page === current ? 'pagination__item--active' : 'pagination__item'}
             >
