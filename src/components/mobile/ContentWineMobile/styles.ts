@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Content = styled.div`
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     width: 100vw;
@@ -23,8 +22,7 @@ export const Content = styled.div`
 `
 
 export const ItemsCount = styled.p`
-    margin-top: 38.77px;
-    margin-bottom: 32px;
+    margin: 38.77px 0px 32px 0px;
     font-weight: 400;
 `
 export const Button = styled.div`

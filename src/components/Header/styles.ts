@@ -140,8 +140,8 @@ export const Perfil = styled.img`
 `
 
 export const SearchImage = styled.img`
-width: 31.66px;
-height: 31.67px;
+    width: 31.66px;
+    height: 31.67px;
 `
 
 export const MarketCar = styled.img`

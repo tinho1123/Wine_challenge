@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const ButtonGoBack = styled.div`
-    margin-top: 1.4rem;
-    margin-left: 10.1rem;
+    margin: 1.4rem 0px 0px 10.1rem;
     display: flex;
     gap: 22px;
     width: 93px;
@@ -27,11 +26,9 @@ export const ButtonGoBack = styled.div`
 `
 
 export const Wine = styled.div`
-    margin-top: 25px;
-    margin-left: 289px;
+    margin: 25px 0px 73px 289px;
     display: flex;
     gap: 162px;
-    margin-bottom: 73px;
 
     .infoImage {
         width: 18rem;
@@ -117,7 +114,7 @@ export const PriceNonMember = styled.p`
 `
 
 export const DescriptionWine = styled.div`
-margin-top: 48px;
+    margin-top: 48px;
     display: flex;
     flex-direction: column;
     gap: 8px;

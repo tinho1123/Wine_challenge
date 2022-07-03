@@ -10,8 +10,7 @@ export const Container = styled.header`
     align-items: center;
 
     @media(max-width: 500px){
-        padding-left: 20px;
-        padding-right: 50px;
+        padding: 0px 50px 0px 20px;
         
     }
 
