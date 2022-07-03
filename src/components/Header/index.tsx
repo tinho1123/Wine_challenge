@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Logo, List, ListItem, Account, Icon } from './styles'
 import Link from 'next/link'
+import { IWineItem } from '../../../contexts/FetchContext'
 
 interface IApiWine {
   page?: number;
@@ -13,6 +14,7 @@ interface IApiWine {
 interface ISearch {
   searchPage?: (filter: string) => Promise<void>;
   apiWine?: IApiWine | undefined;
+  card?: IWineItem[]
 }
 
 const Header = (props: ISearch) => {
@@ -59,7 +61,7 @@ const Header = (props: ISearch) => {
         <Icon >
 
           <div className='marketCar'>
-            <p>2</p>
+            <p>{props.card ? props.card.length : 0}</p>
           </div>
         </Icon>
       </Account>

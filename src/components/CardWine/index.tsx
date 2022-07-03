@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { localstorageCardSetItem } from '../../helpers/localstorageCard'
+import { IWineItem } from '../../../contexts/FetchContext'
 import {
   Container,
   WineCard,
@@ -34,9 +34,29 @@ interface Props {
   region?: string;
   flag?: string;
   sommelierComment?: string;
+  localstorageCardSetItem?: (props:IWineItem) => void;
 }
 
 function CardWine (props : Props) {
+  const {
+    id,
+    image,
+    name,
+    price,
+    discount,
+    priceMember,
+    priceNonMember,
+    type,
+    classification,
+    size,
+    rating,
+    avaliations,
+    country,
+    region,
+    flag,
+    sommelierComment
+  } = props
+
   return (
     <Container>
       <Link href={`/Loja/${props.name}`}>
@@ -55,11 +75,23 @@ function CardWine (props : Props) {
       </WineCard>
       </Link>
       <Button onClick={() => {
-        localstorageCardSetItem({
-          ...props,
-          price: props.price,
-          priceNonMember: props.priceNonMember,
-          priceMember: props.priceMember,
+        props.localstorageCardSetItem!({
+          id,
+          image,
+          name,
+          price: Number(price?.toFixed(2)),
+          discount,
+          priceMember: Number(priceMember?.toFixed(2)),
+          priceNonMember: Number(priceNonMember?.toFixed(2)),
+          type,
+          classification,
+          size,
+          rating,
+          avaliations,
+          country,
+          region,
+          flag,
+          sommelierComment,
           quantity: 1
         })
       }}><LabelButton>Adicionar</LabelButton></Button>

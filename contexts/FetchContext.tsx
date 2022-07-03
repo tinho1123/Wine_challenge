@@ -1,12 +1,32 @@
 import React, { createContext, PropsWithChildren, useContext, useState } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 
-interface IApiWine {
+export interface IApiWine {
   page?: number;
   totalPages?: number,
   itemsPerPage?: number,
   totalItems?: number,
   items?: object[]
+}
+
+export interface IWineItem {
+  id?: number;
+  image?: string;
+  name?: string;
+  price?: number;
+  discount?: number;
+  priceMember?: number;
+  priceNonMember?: number;
+  type?: string;
+  classification?: number;
+  size?: string;
+  rating?: number;
+  avaliations?: number;
+  country?: string;
+  region?: string;
+  flag?: string;
+  sommelierComment?: string;
+  quantity?: number
 }
 
 export interface IFetchData {
@@ -15,6 +35,9 @@ export interface IFetchData {
   setApiWine?: Dispatch<SetStateAction<IApiWine | undefined>> | {};
   filterPage?: (filter: string) => Promise<void>;
   searchPage?: (text: string) => Promise<void>;
+  localstorageCardSetItem?: (item: IWineItem) => void,
+  localstorageCardRemoveItem?: (item: IWineItem) => void,
+  card?: IWineItem[]
 }
 
 export const FetchContext = createContext<IFetchData>({})
@@ -23,6 +46,7 @@ export const useFetchDataContext = () => useContext<IFetchData>(FetchContext)
 
 export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [apiWine, setApiWine] = useState<IApiWine>()
+  const [card, setCard] = useState<IWineItem[] | []>([])
 
   const switchPage = async (page: number): Promise<void> => {
     try {
@@ -56,12 +80,29 @@ export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) 
     }
   }
 
+  const localstorageCardSetItem = (item: IWineItem) => {
+    const car: IWineItem[] = localStorage.getItem('wineCar') ? JSON.parse(localStorage.getItem('wineCar')!) : []
+    car.push(item)
+    localStorage.setItem('wineCar', JSON.stringify(car))
+    setCard(car)
+  }
+
+  const localstorageCardRemoveItem = (item: IWineItem) => {
+    const car: IWineItem[] = JSON.parse(localStorage.getItem('wineCar')!)
+    const filterCar = car.filter((carItem) => carItem.name !== item.name)
+    localStorage.setItem('wineCar', JSON.stringify(filterCar))
+    setCard(filterCar)
+  }
+
   const fetchData: IFetchData = {
     switchPage,
     apiWine,
     setApiWine,
     filterPage,
-    searchPage
+    searchPage,
+    localstorageCardSetItem,
+    localstorageCardRemoveItem,
+    card
   }
 
   return (

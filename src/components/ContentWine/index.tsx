@@ -24,7 +24,7 @@ function ContentWine (props: IFetchData) {
             <>
             <ItemsCount><label style={{ fontWeight: '700' }}>{props.apiWine?.totalItems}</label> produtos encontrados</ItemsCount>
             <div className='cardContent'>
-              { props.apiWine?.items!.map((item: IApiWine, i: Key) => (<CardWine key={i} {...item} />))}
+              { props.apiWine?.items!.map((item: IApiWine, i: Key) => (<CardWine key={i} {...item} localstorageCardSetItem={props.localstorageCardSetItem}/>))}
             </div>
             {props.apiWine?.totalItems! >= 50
               ? (
