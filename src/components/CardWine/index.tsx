@@ -59,7 +59,7 @@ function CardWine (props : Props) {
   } = props
 
   return (
-    <Container>
+    <Container data-cy='cardItem' >
       <Link href={`/Loja/${props.name}`}>
       <WineCard >
         <ImageWine src={props.image} />
