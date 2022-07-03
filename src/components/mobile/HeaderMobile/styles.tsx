@@ -25,7 +25,10 @@ export const Hamburguer = styled.img`
     width: 21.88px;
     height: 28px;
     
-
+    @media(max-width: 400px){
+        margin-left: 30px;
+        
+    }   
 `
 
 export const Logo = styled.img`
