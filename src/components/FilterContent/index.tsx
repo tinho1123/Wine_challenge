@@ -14,15 +14,15 @@ function FilterContent (props: IFilterContent) {
     { name: 'Acima de R$500', check: false, req: '500-500' }
   ]
   return (
-    <div>
+    <aside>
       <FilterSearch>
-        <h4 className="titleSearch">Refine sua busca</h4>
-        <p className="subtitleSearch">Por preço</p>
+        <h4 className="titleSearch" data-cy='title'>Refine sua busca</h4>
+        <p className="subtitleSearch" data-cy='subtitle'>Por preço</p>
         <div>
-          <ListFilterSearch>
+          <ListFilterSearch data-cy='list-checkbox'>
             <CheckBoxFilterSearch>
               {checklist.map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '13.72px' }}>
+                <div key={i} data-cy={i} style={{ display: 'flex', gap: '13.72px' }}>
                   <input
                     type="radio"
                     name="opcao"
@@ -35,7 +35,7 @@ function FilterContent (props: IFilterContent) {
           </ListFilterSearch>
         </div>
       </FilterSearch>
-    </div>
+    </aside>
   )
 }
 

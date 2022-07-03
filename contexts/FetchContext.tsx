@@ -52,7 +52,7 @@ export const FetchContextProvider: React.FC<PropsWithChildren> = ({ children }) 
 
   useEffect(() => {
     setInterval(() => {
-      setMobile(window.screen.width <= 600)
+      setMobile(window.screen.width <= 750)
     }, 1000)
   }, [mobile])
 

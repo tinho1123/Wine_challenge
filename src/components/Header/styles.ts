@@ -5,23 +5,24 @@ export const Container = styled.header`
     width: 100%;
     height: 88.23px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     border-bottom:0.5px solid #CCCCCC;
 `
 
 export const Logo = styled.img`
     width: 102.95px;
     height: 31px;
-    margin-left: 150.75px;
-    margin-top: 27px;
+    margin: 50% 0px 50% 0;
 `
 
 export const List = styled.ul`
-    margin-left: 83.15px;
     display: flex;
     gap: 48px;
     font-family: Neo Sans;
     height: 100%;
     position: sticky;
+    margin-right: 50px;
 
     .Loja {
         &::after {
@@ -30,6 +31,13 @@ export const List = styled.ul`
         top: 30px;
         border-bottom: 2px solid #D14B8F;
     }
+    }
+
+    @media(max-width: 1000px){
+        gap: 24px
+    }
+    @media(max-width: 800px){
+        margin-right: 20px;
     }
 ;
 `
@@ -53,7 +61,6 @@ export const ListItem = styled.li`
 `
 
 export const Account = styled.div`
-    margin-left: 150px;
     display: flex;
     gap: 42px;
     align-items: center;

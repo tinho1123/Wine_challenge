@@ -3,7 +3,7 @@ import { Container } from './styles'
 
 const Loading = () => {
   return (
-      <Container>
+      <Container data-cy='loading' >
           Loading....
         </Container>
   )

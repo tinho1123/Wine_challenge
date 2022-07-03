@@ -17,13 +17,13 @@ function ContentWine (props: IFetchData) {
   const [offset, setOffset] = useState(0)
   return (
     <>
-    <Content>
+    <Content data-cy='conteudoPrincipal'>
        {props.apiWine?.page === 0
          ? <Loading />
          : (
             <>
             <ItemsCount><label style={{ fontWeight: '700' }}>{props.apiWine?.totalItems}</label> produtos encontrados</ItemsCount>
-            <div className='cardContent'>
+            <div className='cardContent' data-cy='cardItem'>
               { props.apiWine?.items!.map((item: IApiWine, i: Key) => (<CardWine key={i} {...item} localstorageCardSetItem={props.localstorageCardSetItem}/>))}
             </div>
             {props.apiWine?.totalItems! >= 50

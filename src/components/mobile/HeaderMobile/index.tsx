@@ -32,11 +32,12 @@ const HeaderMobile = (props: ISearch) => {
   return (
     <Container>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '10rem', marginLeft: '1rem' }}>
-      <Hamburguer src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png' alt='hamburguer'/>
+        <Hamburguer src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png' alt='hamburguer'/>
+        <div>
+          <Logo src='https://d2duuy9yo5pldo.cloudfront.net/dashboard-resources/wine/e90faa36-9670-4bd4-a063-8818d3f9d20e.png' alt='logo'/>
+        </div>
+      </div>
       <div>
-        <Logo src='https://d2duuy9yo5pldo.cloudfront.net/dashboard-resources/wine/e90faa36-9670-4bd4-a063-8818d3f9d20e.png' alt='logo'/>
-      </div>
-      </div>
       <Account>
       <input
         onChange={(e) => {
@@ -59,6 +60,7 @@ const HeaderMobile = (props: ISearch) => {
           </div>
       </div>
       </Account>
+      </div>
     </Container>
   )
 }
