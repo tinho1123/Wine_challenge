@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React, { useMemo, useState } from 'react'
-import { useFetchDataContext } from '../../../../contexts/FetchContext'
+import React, { Dispatch, SetStateAction, useMemo, useState } from 'react'
+import { IApiWine, IWineItem, useFetchDataContext } from '../../../../contexts/FetchContext'
 
 import {
   Wine,
@@ -34,9 +34,18 @@ interface Props {
   flag?: string;
   sommelierComment?: string;
   quantity?: number;
+  switchPage?: (page: number) => Promise<void>;
+  apiWine?: IApiWine | undefined;
+  setApiWine?: Dispatch<SetStateAction<IApiWine | undefined>>;
+  filterPage?: (filter: string) => Promise<void>;
+  searchPage?: (text: string) => Promise<void>;
+  localstorageCardSetItem?: (item: IWineItem) => void,
+  localstorageCardRemoveItem?: (item: IWineItem) => void,
+  card?: IWineItem[],
+  mobile?: boolean
 }
 
-const InfoWineMobile = () => {
+const InfoWineMobile = (props: Props) => {
   const [info, setInfo] = useState<Props>({})
   const router = useRouter()
   const { item } = router.query
