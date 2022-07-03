@@ -15,7 +15,7 @@ export const InfoWine = styled.div`
 `
 
 export const CountryWine = styled.div`
-    width: 500px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
