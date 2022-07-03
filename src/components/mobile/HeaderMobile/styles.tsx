@@ -5,14 +5,20 @@ export const Container = styled.header`
     width: 100%;
     height: 88.23px;
     display: flex;
+    justify-content: space-between;
     border-bottom:0.5px solid #CCCCCC;
+    align-items: center;
+`
+
+export const Hamburguer = styled.img`
+    width: 21.88px;
+    height: 28px;
+
 `
 
 export const Logo = styled.img`
     width: 102.95px;
     height: 31px;
-    margin-left: 150.75px;
-    margin-top: 27px;
 `
 
 export const List = styled.ul`
@@ -78,21 +84,9 @@ export const Account = styled.div`
 
     .containerMarket {
         position: relative;
-
-        .iconMarket {
-            background-color: #F6B554;
-            position: relative;
-            height: 56px;
-            width: 56px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .marketCar {
+    }
+    
+    .marketCar {
         position: absolute;
         display: flex;
         justify-content: center;
@@ -105,9 +99,6 @@ export const Account = styled.div`
         background-color: #FFFF;
         color: #4FBFA5;
     }
-    }
-    
-   
 
 `
 
@@ -115,7 +106,6 @@ export const Icon = styled.div`
     position: relative;
     height: 56px;
     width: 56px;
-    border: 2px solid #555555;
     border-radius: 50%;
     display: flex;
     justify-content: center;
