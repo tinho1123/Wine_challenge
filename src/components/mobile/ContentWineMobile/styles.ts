@@ -1,19 +1,16 @@
 import styled from 'styled-components'
 
 export const Content = styled.div`
-    max-width: 793px;
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    width: 100vw;
 
     .line {
         width: 80%;
-        height: 1px;
         border: 0.5px solid #D5D5D5;
-        margin-top: 20px;
-        margin-bottom: 24px;
+        margin: 20px 0 24px 0;
     }
 
     .cardContent {

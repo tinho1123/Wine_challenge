@@ -21,7 +21,7 @@ O desafio será implementar um e-commerce para venda de vinhos que deverá ter a
 - [x] Catálogo de produtos com paginação
 - [x] Filtragem produtos por preço
 - [x] Busca por nome do produto
-- [ ] Adicionar e remover produtos do carrinho
+- [x] Adicionar e remover produtos do carrinho
 
 ## 📋 Instruções ReactJS
 

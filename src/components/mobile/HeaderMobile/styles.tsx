@@ -5,7 +5,7 @@ export const Container = styled.header`
     width: 100%;
     height: 88.23px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-bottom:0.5px solid #CCCCCC;
     align-items: center;
 `
@@ -19,43 +19,6 @@ export const Hamburguer = styled.img`
 export const Logo = styled.img`
     width: 102.95px;
     height: 31px;
-`
-
-export const List = styled.ul`
-    margin-left: 83.15px;
-    display: flex;
-    gap: 48px;
-    font-family: Neo Sans;
-    height: 100%;
-    position: sticky;
-
-    .Loja {
-        &::after {
-        content: '';
-        position: relative;
-        top: 30px;
-        border-bottom: 2px solid #D14B8F;
-    }
-    }
-;
-`
-
-export const ListItem = styled.li`
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    align-self: center;
-    color: #555555;
-    cursor: pointer;
-
-    &:hover {
-    &::after {
-        content: '';
-        position: relative;
-        top: 30px;
-        border-bottom: 2px solid #D14B8F;
-    }
-}
 `
 
 export const Account = styled.div`
