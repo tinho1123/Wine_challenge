@@ -2,7 +2,7 @@ import React from 'react'
 import { FilterSearch, ListFilterSearch, CheckBoxFilterSearch } from './styles'
 
 interface IFilterContent{
-  filterPage: (filter: string) => void
+  filterPage?: (filter: string) => void
 }
 
 function FilterContent (props: IFilterContent) {
@@ -27,7 +27,7 @@ function FilterContent (props: IFilterContent) {
                     type="radio"
                     name="opcao"
                     className="checkbox-round"
-                    onClick={() => props.filterPage(item.req)} />
+                    onClick={() => props.filterPage!(item.req)} />
                   <p>{item.name}</p>
                 </div>
               ))}

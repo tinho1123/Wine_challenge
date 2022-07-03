@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const FilterSearch = styled.div `
+export const FilterSearch = styled.div`
     margin-left: 160px;
     margin-top: 38.77px;
     display: flex;
@@ -18,12 +18,12 @@ export const FilterSearch = styled.div `
         font-weight: 700;
         font-size: 18px;
     }
-`;
+`
 
 export const ListFilterSearch = styled.ul`
     list-style: none;
     display: flex;
-`;
+`
 
 export const CheckBoxFilterSearch = styled.li`
     padding-top: 29px;
@@ -48,4 +48,4 @@ export const CheckBoxFilterSearch = styled.li`
             border: 5px solid blue;
         }
     }
-`;
+`

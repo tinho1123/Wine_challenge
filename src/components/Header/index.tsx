@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Logo, List, ListItem, Account, Icon } from './styles'
 import Link from 'next/link'
-import Image from 'next/image'
+import { IWineItem } from '../../../contexts/FetchContext'
 
 interface IApiWine {
-  page: number;
-  totalPages: number,
-  itemsPerPage: number,
-  totalItems: number,
-  items: object[]
+  page?: number;
+  totalPages?: number,
+  itemsPerPage?: number,
+  totalItems?: number,
+  items?: object[]
 }
 
 interface ISearch {
-  searchPage: (filter: string) => Promise<void>;
-  apiWine: IApiWine | undefined;
+  searchPage?: (filter: string) => Promise<void>;
+  apiWine?: IApiWine | undefined;
+  card?: IWineItem[]
 }
 
 const Header = (props: ISearch) => {
@@ -24,7 +25,7 @@ const Header = (props: ISearch) => {
   useEffect(() => {
     if (search) {
       setTimeout(() => {
-        props.searchPage(search)
+        props.searchPage!(search)
       }, 1000)
     }
   }, [search])
@@ -51,16 +52,16 @@ const Header = (props: ISearch) => {
         value={search}
         className={searchCheck ? 'visible' : 'invisible'}
       />
-        <Icon onClick={() => setSearchCheck(!searchCheck)}>
-          <Image src={'/../../../public/images/Busca.png'} alt='Lupa de procura' width={56} height={56} />
+        <Icon className='searchItem' onClick={() => setSearchCheck(!searchCheck)}>
+
         </Icon>
-        <Icon>
-          <Image src={'/../../../public/images/conta.png'} alt='Minha conta' width={56} height={56} />
+        <Icon className='perfil'>
+
         </Icon>
-        <Icon>
-          <Image src={'/../../../public/images/winebox.png'} alt='Carrinho de compras' width={56} height={56}/>
+        <Icon >
+
           <div className='marketCar'>
-            <p>2</p>
+            <p>{props.card ? props.card.length : 0}</p>
           </div>
         </Icon>
       </Account>

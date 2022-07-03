@@ -1,9 +1,9 @@
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useMemo, useState } from 'react'
-import Rating from 'react-rating'
 
 import { Header } from '../../../components'
-import { localstorageCardSetItem } from '../../../helpers/localstorageCardSetItem'
+import { localstorageCardSetItem } from '../../../helpers/localstorageCard'
 
 import {
   ButtonGoBack,
@@ -20,7 +20,7 @@ import {
 
 interface Props {
   id?: number;
-  image?: string;
+  image?: string ;
   name?: string;
   price?: number;
   discount?: number;
@@ -44,14 +44,14 @@ const Card = () => {
   const router = useRouter()
   const { item } = router.query
 
-  useMemo(async () => {
-    await fetch(
+  useMemo(() => {
+    fetch(
       `https://wine-back-test.herokuapp.com/products?name=${item}`
     ).then(async (response) => {
       const res = await response.json()
       setInfo(res.items[0])
     })
-  }, [info])
+  }, [])
 
   return (
     <div>
@@ -67,7 +67,9 @@ const Card = () => {
             <p className="goBack">Voltar</p>
           </ButtonGoBack>
           <Wine>
-            <img src={info.image} className="infoImage" alt={info.name} />
+            {info.image && (
+            <Image src={info.image!} className="infoImage" width='381' height='579' alt={info.name} />
+            )}
             <InfoWine>
               <div>
                 <CountryWine>
@@ -90,7 +92,9 @@ const Card = () => {
               <div>
                 <NameWine>{info.name}</NameWine>
                 <SubInfoWine>
-                  <img src={info.flag} style={{ width: '16px' }} />
+                  {info.flag && (
+                    <Image src={info?.flag!} width='16' height='16' />
+                  )}
                   <p>{info.country}</p>
                   <p>{info.type}</p>
                   <p>{info.classification}</p>
@@ -103,13 +107,11 @@ const Card = () => {
                       alignItems: 'center'
                     }}
                   >
-                    <Rating
-                      fractions={2}
-                      initialRating={info.rating}
-                      readonly={true}
-                      emptySymbol={<div>☆</div>}
-                      fullSymbol={<div>⭐</div>}
-                    />
+                    <div>⭐</div>
+                    <div>⭐</div>
+                    <div>⭐</div>
+                    <div>⭐</div>
+                    <div>☆</div>
                     <div style={{ marginLeft: '4.8px' }}>
                       ({info.avaliations})
                     </div>
@@ -144,17 +146,17 @@ const Card = () => {
                           fontWeight: '700',
                           fontSize: '16px',
                           cursor: 'pointer',
-                          backgroundColor: 'red',
                           width: '20px',
-                          height: '20px'
+                          height: '20px',
+                          paddingRight: '49px'
                         }
                       }
                       onClick={() => {
                         localstorageCardSetItem({
                           ...info,
-                          price: info.price * sumItemCart,
-                          priceNonMember: info.priceNonMember * sumItemCart,
-                          priceMember: info.priceMember * sumItemCart,
+                          price: info?.price! * sumItemCart,
+                          priceNonMember: info?.priceNonMember! * sumItemCart,
+                          priceMember: info?.priceMember! * sumItemCart,
                           quantity: sumItemCart
                         })
                       }}
